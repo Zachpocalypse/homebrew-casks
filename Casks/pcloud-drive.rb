@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 
 cask 'pcloud-drive' do
-  version '3.7.9'
-  sha256 '05e6ed62185d689688894096e0b9c32ee9256b77d4f4e1503d60dbfec1b5c593'
+  version '3.9.5'
+  sha256 '77287c59f899a24123ecc4c6cba3bf18fc83a9f0c938848678386b079a061813'
 
   url do
     require 'net/http'
     require 'json'
     api = 'https://api.pcloud.com/'
-    code = 'XZxCdakZRh9qTwDrTU57A4KXw5E2CVMnLrDV'
+    code = 'XZAgiVXZyEWI9yCKqw8eLkjHTmOkjHiOMc5X'
     uri = URI(api + 'getpublinkdownload?code=' + code)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
@@ -19,7 +19,7 @@ cask 'pcloud-drive' do
 
   depends_on cask: 'osxfuse'
 
-  pkg 'pCloud Drive 3.9.4.pkg'
+  pkg 'pCloud Drive 3.9.5.pkg'
 
   uninstall quit:    'com.pcloud.pcloud.macos',
             pkgutil: 'com.mobileinno.pkg.pCloudDrive'
